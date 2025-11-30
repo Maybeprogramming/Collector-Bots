@@ -17,9 +17,9 @@ public class Mover : MonoBehaviour
         var basePos = new Vector3(_baseTransform.position.x, transform.position.y, _baseTransform.position.z);
 
         sequence.Append(transform.DOMove(targetPos, _durationTime).SetDelay(_delayTime))
-                .Append(transform.DORotate(new Vector3(0f, 90f, 0f), 1f, RotateMode.FastBeyond360))
+                .Join(transform.DOLookAt(targetPos, 0.3f))
                 .Append(transform.DOMove(basePos, _durationTime).SetDelay(_delayTime))
-                .Append(transform.DORotate(new Vector3(0f, -90f, 0f), 1f, RotateMode.FastBeyond360))
+                .Join(transform.DOLookAt(basePos, 0.3f))
                 .SetLoops(_repeatCount, LoopType.Restart);
     }
 }
