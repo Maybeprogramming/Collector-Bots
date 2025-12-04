@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Collector : MonoBehaviour
+public class ResourceCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _label;
     [SerializeField] private int _count;
@@ -10,12 +10,12 @@ public class Collector : MonoBehaviour
     private void Start()
     {
         _count = 0;
-        _label.text = $"Ресурсов\n- {_count} -";
+        _label.text = $"Р РµСЃСѓСЂСЃРѕРІ\n- {_count} -";
     }
 
     private void OnTriggerEnter(Collider other)
     {
         _count++;
-        _label.text = $"Ресурсов\n- {_count} -";
+        _label.text = $"Р РµСЃСѓСЂСЃРѕРІ\n- {_count} -";
     }
 }
