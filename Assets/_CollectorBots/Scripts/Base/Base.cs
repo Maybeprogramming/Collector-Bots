@@ -21,7 +21,7 @@ public class Base : MonoBehaviour
     public void TakeResource(Resource resource)
     {
         _counter.Add();
-        resource.Contact();
+        resource.PutToPool();
 
         Debug.Log($"База приняла ресурс {resource.name}");
     }

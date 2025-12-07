@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ResourceSpawner : BaseResourcePool<Resource>
+public class SpawnerResources : BaseResourcePool<Resource>
 {
     [SerializeField] private Transform _conteiner;
     [SerializeField] private float _minTimeSpawn;
@@ -11,7 +11,7 @@ public class ResourceSpawner : BaseResourcePool<Resource>
     [SerializeField] private float _offsetXPosition;
     [SerializeField] private float _offsetZPosition;
     [SerializeField] private float _positionY;
-    [SerializeField] private Vector3 _spawnPosition;
+    [SerializeField] private Vector3 _spawnCentrPosition;
     [SerializeField] private int _maxCount;
 
     public event Action Spawned;
@@ -28,8 +28,9 @@ public class ResourceSpawner : BaseResourcePool<Resource>
 
         Resource resource = Pool.Get();
         resource.transform.position = newSpawnPosition;
+        resource.transform.rotation = Quaternion.identity;
+        resource.transform.localScale = Vector3.one;
         resource.transform.parent = _conteiner.transform;
-        resource.transform.Rotate(Vector3.zero);
         resource.Init(this);
 
         Spawned?.Invoke();
@@ -37,20 +38,24 @@ public class ResourceSpawner : BaseResourcePool<Resource>
 
     private Vector3 GetRandomPosition()
     {
-        float minX = _spawnPosition.x - _offsetXPosition;
-        float maxX = _spawnPosition.x + _offsetXPosition;
-        float minZ = _spawnPosition.z - _offsetZPosition;
-        float maxZ = _spawnPosition.z + _offsetZPosition;
+        float minX = _spawnCentrPosition.x - _offsetXPosition;
+        float maxX = _spawnCentrPosition.x + _offsetXPosition;
+        float minZ = _spawnCentrPosition.z - _offsetZPosition;
+        float maxZ = _spawnCentrPosition.z + _offsetZPosition;
 
         return new Vector3(Random.Range(minX, maxX), _positionY, Random.Range(minZ, maxZ));
     }
 
     private IEnumerator Spawning()
     {
-        while (enabled && Pool.CountAll < _maxCount)
+        while (enabled)
         {
-            yield return GetRandomDelayTime();
-            Spawn();
+            if (Pool.CountActive < _maxCount)
+            {
+                Spawn();
+            }
+
+            yield return GetRandomDelayTime();            
         }
     }
 

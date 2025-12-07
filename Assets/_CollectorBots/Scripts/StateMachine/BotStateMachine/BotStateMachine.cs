@@ -7,9 +7,9 @@ public class BotStateMachine : StateMachine
     [SerializeField] private float _dropDistance = 2f;
 
     private IMover _botMover;
-    private ResourceContainer _resourceContainer;
+    private Inventory _resourceContainer;
 
-    public ResourceContainer ResourceContainer => _resourceContainer;
+    public Inventory ResourceContainer => _resourceContainer;
     public IBot Bot { get; private set; }
 
     public IMover GetBotMover() =>
@@ -25,7 +25,7 @@ public class BotStateMachine : StateMachine
         TransiteTo<Idle>();
     }
 
-    public void Init(IBot bot, IMover botMover, ResourceContainer resourceContainer)
+    public void Init(IBot bot, IMover botMover, Inventory resourceContainer)
     {
         Bot = bot;
         _botMover = botMover;

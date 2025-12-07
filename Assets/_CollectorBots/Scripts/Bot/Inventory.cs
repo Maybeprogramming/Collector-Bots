@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-public class ResourceContainer : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     [SerializeField] private Resource _resource;
     [SerializeField] private Transform _conteiner;
@@ -16,25 +16,35 @@ public class ResourceContainer : MonoBehaviour
         _resource = resource;
 
         _animating = StartCoroutine(Animating(_conteiner.transform.position));
-
-        _resource.gameObject.transform.parent = _conteiner.transform;
+        Attached(_resource);
     }
 
     public Resource Drop(Vector3 target)
     {
         var resource = _resource;
         _animating = StartCoroutine(Animating(target));
-        resource.gameObject.transform.parent = null;
+        Detached(resource);
         _resource = null;
 
         return resource;
     }
 
+    private void Attached(Resource resource)
+    {
+        resource.gameObject.transform.parent = _conteiner.transform;
+    }
+
+    private static void Detached(Resource resource)
+    {
+        resource.gameObject.transform.parent = null;
+    }
+
     private IEnumerator Animating(Vector3 target)
     {
-        _resource.transform.DOMove(target, 0.1f);
-        _resource.transform.DORotate(target, 0.1f);
+        _resource.transform.position = _conteiner.position;
+        _resource.transform.rotation = _conteiner.rotation;
+        _resource.transform.localScale = _conteiner.localScale;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return null;
     }
 }

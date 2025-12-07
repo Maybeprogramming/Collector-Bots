@@ -1,14 +1,14 @@
 using UnityEngine;
 public class Resource : MonoBehaviour
 {
-    [SerializeField] ResourceSpawner _spawner;
+    [SerializeField] private SpawnerResources _spawner;
 
-    public void Contact()
+    public void PutToPool()
     {
         _spawner.Pool.Release(this);
     }
 
-    public void Init(ResourceSpawner spawner)
+    public void Init(SpawnerResources spawner)
     {
         _spawner = spawner;
     }

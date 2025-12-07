@@ -156,9 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd11fdcbd8d97e46b1e604bcc27f22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scaleVector: {x: 3, y: 1, z: 3}
-  _duration: 0.5
-  _delayTime: 0.1
+  _scaleVector: {x: 2, y: 1, z: 2}
+  _duration: 0.7
+  _delayTime: 0.05
   _ease: 1
   _repeatCount: 1
   _rendererCircle1: {fileID: 557870186229533715}
@@ -166,7 +166,7 @@ MonoBehaviour:
   _rendererCircle3: {fileID: 8291828847256940263}
   _tranporancy: 0
   _defaultTranporancy: 1
-  _scaleMultiplier: 0.5
+  _scaleMultiplier: 0.4
 --- !u!1 &3932171051193597161
 GameObject:
   m_ObjectHideFlags: 0

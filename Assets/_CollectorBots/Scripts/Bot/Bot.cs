@@ -6,7 +6,7 @@ public class Bot: MonoBehaviour, IBot
     [SerializeField] private Base _base;
     [SerializeField] private Mover _mover;
     [SerializeField] private Resource _currentResource;
-    [SerializeField] private ResourceContainer _resourceConteiner;
+    [SerializeField] private Inventory _resourceConteiner;
     [SerializeField] private BotStateMachine _stateMachine;
 
     public Resource CurrentResource => _currentResource;
