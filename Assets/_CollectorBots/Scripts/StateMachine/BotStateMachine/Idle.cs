@@ -11,12 +11,12 @@ public class Idle : IState
 
     public void Enter()
     {
-        Debug.Log($"Бот вошёл в состояние: {nameof(Idle)}");
+        Debug.Log($"Р‘РѕС‚ РІРѕС€С‘Р» РІ СЃРѕСЃС‚РѕСЏРЅРёРµ: {nameof(Idle)}");
     }
 
     public void Exit()
     {
-        Debug.Log($"Бот вышел из состояния: {nameof(Idle)}");
+        Debug.Log($"Р‘РѕС‚ РІС‹С€РµР» РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ: {nameof(Idle)}");
     }
 
     public void Update()

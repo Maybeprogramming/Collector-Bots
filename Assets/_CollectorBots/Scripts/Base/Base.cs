@@ -23,7 +23,7 @@ public class Base : MonoBehaviour
         _counter.Add();
         resource.Contact();
 
-        Debug.Log($"База приняла ресурс {resource.name}");
+        Debug.Log($"Р‘Р°Р·Р° РїСЂРёРЅСЏР»Р° СЂРµСЃСѓСЂСЃ {resource.name}");
     }
 
     private void DoWork()
@@ -33,7 +33,7 @@ public class Base : MonoBehaviour
             _bot.SetResourceToMine(resource);
         }
         {
-            Debug.Log("Нет свободных рабочих");
+            Debug.Log("РќРµС‚ СЃРІРѕР±РѕРґРЅС‹С… СЂР°Р±РѕС‡РёС…");
         }
     }
 

@@ -16,12 +16,12 @@ public class Mining : IState
             _stateMachine.ResourceContainer.Add(_stateMachine.Bot.CurrentResource);
         }
 
-        Debug.Log($"Бот вошёл в состояние: {nameof(Mining)}");
+        Debug.Log($"Р‘РѕС‚ РІРѕС€С‘Р» РІ СЃРѕСЃС‚РѕСЏРЅРёРµ: {nameof(Mining)}");
     }
 
     public void Exit()
     {
-        Debug.Log($"Бот вышел из состояния: {nameof(Mining)}");
+        Debug.Log($"Р‘РѕС‚ РІС‹С€РµР» РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ: {nameof(Mining)}");
     }
 
     public void Update()

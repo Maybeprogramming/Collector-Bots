@@ -27,13 +27,13 @@ public class Walk : IState
 
         _mover.MoveTo(_target);
 
-        Debug.Log($"Бот вошёл в состояние: {nameof(Walk)}");
+        Debug.Log($"Р‘РѕС‚ РІРѕС€С‘Р» РІ СЃРѕСЃС‚РѕСЏРЅРёРµ: {nameof(Walk)}");
     }
 
     public void Exit()
     {
         _mover.Stop();
-        Debug.Log($"Бот вышел из состояния: {nameof(Walk)}");
+        Debug.Log($"Р‘РѕС‚ РІС‹С€РµР» РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ: {nameof(Walk)}");
     }
 
     public void Update()

@@ -13,12 +13,12 @@ public class Drop : IState
     {
         _stateMachine.Bot.GiveResource(_stateMachine.ResourceContainer.Drop(_stateMachine.Bot.CurrentBasePosition));
 
-        Debug.Log($"Бот вошёл в состояние: {nameof(Drop)}");
+        Debug.Log($"Р‘РѕС‚ РІРѕС€С‘Р» РІ СЃРѕСЃС‚РѕСЏРЅРёРµ: {nameof(Drop)}");
     }
 
     public void Exit()
     {
-        Debug.Log($"Бот вышел из состояния: {nameof(Drop)}");
+        Debug.Log($"Р‘РѕС‚ РІС‹С€РµР» РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ: {nameof(Drop)}");
     }
 
     public void Update()

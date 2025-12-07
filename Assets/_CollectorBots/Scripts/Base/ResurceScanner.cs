@@ -31,13 +31,13 @@ public class ResurceScanner : MonoBehaviour
 
     public void LocationToScan()
     {
-        Debug.Log("Сканиерование");
+        Debug.Log("РЎРєР°РЅРёРµСЂРѕРІР°РЅРёРµ");
 
         var colliders = Physics.OverlapSphere(_centerLocation.position, _radius, _layerMask);
 
         if (colliders.Length != 0)
         {
-            Debug.Log("Найдено ресурсов: " + colliders.Length);
+            Debug.Log("РќР°Р№РґРµРЅРѕ СЂРµСЃСѓСЂСЃРѕРІ: " + colliders.Length);
 
             foreach (var collider in colliders)
             {
