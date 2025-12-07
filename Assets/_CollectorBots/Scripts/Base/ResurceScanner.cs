@@ -52,6 +52,7 @@ public class ResurceScanner : MonoBehaviour
         if (_resources.Count != 0)
         {
             resource = _resources.First();
+            _resources.Remove(resource);
             return true;
         }
         else

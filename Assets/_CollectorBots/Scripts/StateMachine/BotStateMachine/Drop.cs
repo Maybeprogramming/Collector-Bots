@@ -25,8 +25,8 @@ public class Drop : IState
     {
         if (_stateMachine.ResourceContainer.IsFull == false)
         { 
-            _stateMachine.TransiteTo<Idle>();
             _stateMachine.Bot.SetResourceToMine(null);
+            _stateMachine.TransiteTo<Idle>();
         }
     }
 }

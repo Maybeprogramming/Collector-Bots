@@ -29,6 +29,7 @@ public class ResourceSpawner : BaseResourcePool<Resource>
         Resource resource = Pool.Get();
         resource.transform.position = newSpawnPosition;
         resource.transform.parent = _conteiner.transform;
+        resource.transform.Rotate(Vector3.zero);
         resource.Init(this);
 
         Spawned?.Invoke();

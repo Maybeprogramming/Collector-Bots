@@ -16,16 +16,18 @@ public class ResourceContainer : MonoBehaviour
         _resource = resource;
 
         _animating = StartCoroutine(Animating(_conteiner.transform.position));
-        
+
         _resource.gameObject.transform.parent = _conteiner.transform;
     }
 
     public Resource Drop(Vector3 target)
     {
+        var resource = _resource;
         _animating = StartCoroutine(Animating(target));
+        resource.gameObject.transform.parent = null;
+        _resource = null;
 
-        _resource.gameObject.transform.parent = null;
-        return _resource;
+        return resource;
     }
 
     private IEnumerator Animating(Vector3 target)
