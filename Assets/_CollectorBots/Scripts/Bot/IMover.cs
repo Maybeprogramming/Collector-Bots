@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-interface IMover
+public interface IMover
 {
+    bool IsCompliteMoving();
     void MoveTo(Vector3 target);
-    void ReturnToBase();
+    void Stop();
 }

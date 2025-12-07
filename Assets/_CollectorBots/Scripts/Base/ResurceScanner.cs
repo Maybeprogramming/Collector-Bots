@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ResurceScanner : MonoBehaviour
@@ -44,6 +45,20 @@ public class ResurceScanner : MonoBehaviour
                     _resources.Add(collider.GetComponent<Resource>());
             }
         }
+    }
+
+    public bool TryGetResource(out Resource resource)
+    {
+        if (_resources.Count != 0)
+        {
+            resource = _resources.First();
+            return true;
+        }
+        else
+        {
+            resource = null;
+            return false;
+        }    
     }
 
     private IEnumerator Scanning()

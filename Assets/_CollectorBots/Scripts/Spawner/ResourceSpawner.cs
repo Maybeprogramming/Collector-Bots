@@ -12,6 +12,7 @@ public class ResourceSpawner : BaseResourcePool<Resource>
     [SerializeField] private float _offsetZPosition;
     [SerializeField] private float _positionY;
     [SerializeField] private Vector3 _spawnPosition;
+    [SerializeField] private int _maxCount;
 
     public event Action Spawned;
 
@@ -45,7 +46,7 @@ public class ResourceSpawner : BaseResourcePool<Resource>
 
     private IEnumerator Spawning()
     {
-        while (enabled)
+        while (enabled && Pool.CountAll < _maxCount)
         {
             yield return GetRandomDelayTime();
             Spawn();

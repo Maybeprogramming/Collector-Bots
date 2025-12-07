@@ -13,7 +13,7 @@ public class ResourceCounter : MonoBehaviour
         _label.text = $"Ресурсов\n- {_count} -";
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Add()
     {
         _count++;
         _label.text = $"Ресурсов\n- {_count} -";

@@ -1,5 +1,5 @@
 public interface IStateMachine
 {
+    IState GetCurrentState {  get; }
     void TransiteTo<T>() where T : IState;
-    T GetCurrentState<T>() where T : IState;
 }

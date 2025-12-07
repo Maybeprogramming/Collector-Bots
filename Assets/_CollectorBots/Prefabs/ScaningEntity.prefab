@@ -158,13 +158,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scaleVector: {x: 3, y: 1, z: 3}
   _duration: 0.5
-  _delayTime: 0
+  _delayTime: 0.1
   _ease: 1
   _repeatCount: 1
   _rendererCircle1: {fileID: 557870186229533715}
   _rendererCircle2: {fileID: 5884237205518039524}
   _rendererCircle3: {fileID: 8291828847256940263}
   _tranporancy: 0
+  _defaultTranporancy: 1
+  _scaleMultiplier: 0.5
 --- !u!1 &3932171051193597161
 GameObject:
   m_ObjectHideFlags: 0

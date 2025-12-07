@@ -1,17 +1,29 @@
+using UnityEngine;
+
 public class Idle : IState
 {
+    private readonly BotStateMachine _stateMachine;
+
+    public Idle(BotStateMachine stateMachine)
+    {
+        _stateMachine = stateMachine;
+    }
+
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"Бот вошёл в состояние: {nameof(Idle)}");
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"Бот вышел из состояния: {nameof(Idle)}");
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+        if(_stateMachine.Bot.CurrentResource != null)
+        {
+            _stateMachine.TransiteTo<Walk>();
+        }
     }
 }

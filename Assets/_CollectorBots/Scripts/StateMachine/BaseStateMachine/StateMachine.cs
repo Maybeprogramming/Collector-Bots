@@ -10,10 +10,7 @@ public abstract class StateMachine : MonoBehaviour, IStateMachine
     protected virtual void Update() =>
         _currentState?.Update();
 
-    public T GetCurrentState<T>() where T : IState
-    {
-        return (T)_currentState;
-    }
+    public IState GetCurrentState => _currentState;
 
     public void TransiteTo<T>() where T : IState
     {

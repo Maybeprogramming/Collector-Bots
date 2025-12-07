@@ -13,6 +13,8 @@ public class ScanAnimation : MonoBehaviour
     [SerializeField] private MeshRenderer _rendererCircle2;
     [SerializeField] private MeshRenderer _rendererCircle3;
     [SerializeField] private float _tranporancy;
+    [SerializeField] private float _defaultTranporancy;
+    [SerializeField] private float _scaleMultiplier;
 
     public void RunScaning()
     {
@@ -36,11 +38,11 @@ public class ScanAnimation : MonoBehaviour
 
     private void ResetScale()
     {
-        transform.localScale = Vector3.one * 0.5f;
+        transform.localScale = Vector3.one * _scaleMultiplier;
     }
 
     private void ResetColor(MeshRenderer renderer)
     {
-        renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1f);
+        renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, _defaultTranporancy);
     }
 }
