@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class Mover : MonoBehaviour, IMover
 {
     [SerializeField] private Transform _baseTransform;
     [SerializeField] private float _offsetDistance;
@@ -11,7 +11,9 @@ public class Mover : MonoBehaviour
 
     public void MoveTo(Vector3 target)
     {
-        transform.DOMove(target, _durationTime).SetDelay(_delayTime).SetLoops(_repeatCount);
+        Vector3 newTarget = new Vector3(target.x, transform.position.y, target.z);
+        transform.DOMove(newTarget, _durationTime).SetDelay(_delayTime).SetLoops(_repeatCount);
+        transform.DOLookAt(newTarget, 0.2f);
     }
 
     public void ReturnToBase()

@@ -10,6 +10,8 @@ public class ResurceScanner : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float _timeBeetweenScanning;
 
+    [SerializeField] private ScanAnimation _scanAnimation;
+
     [SerializeField] private bool isGizmosVisible;
     [SerializeField, Range(0, 1)] private float _transporentGizmos;
     [SerializeField] private Color _gizmosColor;
@@ -36,9 +38,9 @@ public class ResurceScanner : MonoBehaviour
         {
             Debug.Log("Найдено ресурсов: " + colliders.Length);
 
-            foreach (var collider in colliders) 
+            foreach (var collider in colliders)
             {
-                if(_resources.Contains(collider.GetComponent<Resource>()) == false) 
+                if (_resources.Contains(collider.GetComponent<Resource>()) == false)
                     _resources.Add(collider.GetComponent<Resource>());
             }
         }
@@ -48,7 +50,10 @@ public class ResurceScanner : MonoBehaviour
     {
         while (enabled)
         {
+            _scanAnimation.gameObject.SetActive(true);
+            _scanAnimation.RunScaning();
             yield return new WaitForSeconds(_timeBeetweenScanning);
+            _scanAnimation.gameObject.SetActive(false);
             LocationToScan();
         }
     }
