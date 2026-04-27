@@ -6,14 +6,7 @@ public class Resource : MonoBehaviour
 
     public void PutToPool()
     {
-        try
-        {
-            _spawner.Pool.Release(this);
-        }
-        catch (System.Exception)
-        {
-            Debug.LogError($"{name}");            
-        }        
+        _spawner.Pool.Release(this);
     }
 
     public void Init(SpawnerResources spawner)
