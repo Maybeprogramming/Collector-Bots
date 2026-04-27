@@ -214,6 +214,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -303,6 +304,7 @@ MonoBehaviour:
   _collectionCheck: 1
   _defaultCapacity: 3
   _poolMaxSize: 10
+  _entityName: Box
   _conteiner: {fileID: 1629565245}
   _minTimeSpawn: 1
   _maxTimeSpawn: 3
@@ -2581,6 +2583,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

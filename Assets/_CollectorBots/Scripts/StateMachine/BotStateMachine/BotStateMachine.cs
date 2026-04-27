@@ -6,14 +6,14 @@ public class BotStateMachine : StateMachine
     [SerializeField] private float _miningDistance = 2f;
     [SerializeField] private float _dropDistance = 2f;
 
-    private IMover _botMover;
+    private IMover _mover;
     private Inventory _resourceContainer;
 
     public Inventory ResourceContainer => _resourceContainer;
     public IBot Bot { get; private set; }
 
     public IMover GetBotMover() =>
-        _botMover;
+        _mover;
 
     private void Start()
     {
@@ -25,10 +25,10 @@ public class BotStateMachine : StateMachine
         TransiteTo<Idle>();
     }
 
-    public void Init(IBot bot, IMover botMover, Inventory resourceContainer)
+    public void Init(IBot bot, IMover mover, Inventory resourceContainer)
     {
         Bot = bot;
-        _botMover = botMover;
+        _mover = mover;
         _resourceContainer = resourceContainer;
     }
 }

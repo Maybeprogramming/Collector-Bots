@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -21,7 +20,7 @@ public class Inventory : MonoBehaviour
 
     public Resource Drop(Vector3 target)
     {
-        var resource = _resource;
+        Resource resource = _resource;
         _animating = StartCoroutine(Animating(target));
         Detached(resource);
         _resource = null;

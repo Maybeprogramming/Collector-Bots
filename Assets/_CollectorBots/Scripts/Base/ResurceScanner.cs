@@ -29,7 +29,7 @@ public class ResurceScanner : MonoBehaviour
         StartCoroutine(Scanning());
     }
 
-    public void LocationToScan()
+    public void LocationScaning()
     {
         Debug.Log("Сканиерование");
 
@@ -70,7 +70,7 @@ public class ResurceScanner : MonoBehaviour
             _scanAnimation.RunScaning();
             yield return new WaitForSeconds(_timeBeetweenScanning);
             _scanAnimation.gameObject.SetActive(false);
-            LocationToScan();
+            LocationScaning();
         }
     }
 }

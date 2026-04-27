@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Bot: MonoBehaviour, IBot
@@ -23,6 +22,7 @@ public class Bot: MonoBehaviour, IBot
     public void GiveResource(Resource resource)
     {
         _base.TakeResource(resource);
+        _currentResource = null; // Выявление ошибки в пуле
     }
 
     //Плохо! Переделать

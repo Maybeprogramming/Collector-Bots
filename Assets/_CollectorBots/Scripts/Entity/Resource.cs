@@ -1,11 +1,19 @@
 using UnityEngine;
+
 public class Resource : MonoBehaviour
 {
     [SerializeField] private SpawnerResources _spawner;
 
     public void PutToPool()
     {
-        _spawner.Pool.Release(this);
+        try
+        {
+            _spawner.Pool.Release(this);
+        }
+        catch (System.Exception)
+        {
+            Debug.LogError($"{name}");            
+        }        
     }
 
     public void Init(SpawnerResources spawner)
