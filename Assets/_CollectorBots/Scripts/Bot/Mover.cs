@@ -4,7 +4,6 @@ using UnityEngine;
 public class Mover : MonoBehaviour, IMover
 {
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _offsetDistance;
 
     [SerializeField] private float _distance;
