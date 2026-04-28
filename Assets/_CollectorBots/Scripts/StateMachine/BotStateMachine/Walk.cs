@@ -4,17 +4,14 @@ public class Walk : IState
 {
     private readonly BotStateMachine _stateMachine;
     private Vector3 _target;
-
     private IMover _mover;
 
-    public Walk(BotStateMachine stateMachine)
-    {
+    public Walk(BotStateMachine stateMachine) =>    
         _stateMachine = stateMachine;
-    }
-
+    
     public void Enter()
     {
-        _mover = _stateMachine.GetBotMover();
+        _mover = _stateMachine.GetBotMover;
 
         if (_stateMachine.Bot.CurrentResource != null && _stateMachine.ResourceContainer.IsFull == false)
         {

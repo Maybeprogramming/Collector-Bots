@@ -59,8 +59,6 @@ public class SpawnerResources : BaseResourcePool<Resource>
         }
     }
 
-    private WaitForSeconds GetRandomDelayTime()
-    {
-        return new WaitForSeconds(Random.Range(_minTimeSpawn, _maxTimeSpawn));
-    }
+    private WaitForSeconds GetRandomDelayTime() =>    
+        new WaitForSeconds(Random.Range(_minTimeSpawn, _maxTimeSpawn));    
 }

@@ -4,10 +4,8 @@ public class Drop : IState
 {
     private readonly BotStateMachine _stateMachine;
 
-    public Drop(BotStateMachine stateMachine)
-    {
+    public Drop(BotStateMachine stateMachine) =>    
         _stateMachine = stateMachine;
-    }
 
     public void Enter()
     {
@@ -16,10 +14,8 @@ public class Drop : IState
         Debug.Log($"Бот вошёл в состояние: {nameof(Drop)}");
     }
 
-    public void Exit()
-    {
-        Debug.Log($"Бот вышел из состояния: {nameof(Drop)}");
-    }
+    public void Exit() =>    
+        Debug.Log($"Бот вышел из состояния: {nameof(Drop)}");    
 
     public void Update()
     {

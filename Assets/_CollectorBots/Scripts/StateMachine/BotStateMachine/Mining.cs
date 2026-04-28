@@ -4,10 +4,8 @@ public class Mining : IState
 {
     private readonly BotStateMachine _stateMachine;
 
-    public Mining(BotStateMachine stateMachine)
-    {
-        _stateMachine = stateMachine;
-    }
+    public Mining(BotStateMachine stateMachine) =>    
+        _stateMachine = stateMachine;    
 
     public void Enter()
     {
@@ -19,10 +17,8 @@ public class Mining : IState
         Debug.Log($"Бот вошёл в состояние: {nameof(Mining)}");
     }
 
-    public void Exit()
-    {
+    public void Exit() =>    
         Debug.Log($"Бот вышел из состояния: {nameof(Mining)}");
-    }
 
     public void Update()
     {

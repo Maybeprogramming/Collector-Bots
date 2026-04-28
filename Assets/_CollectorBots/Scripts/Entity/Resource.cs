@@ -3,7 +3,8 @@ using UnityEngine;
 public class Resource : MonoBehaviour
 {
     [SerializeField] private SpawnerResources _spawner;
-    [SerializeField] private bool _isClaimed;
+
+    private bool _isClaimed;
 
     public bool IsClaimed => _isClaimed;
 
@@ -17,12 +18,7 @@ public class Resource : MonoBehaviour
         _isClaimed = true;
         return true;
     }
-
-    public void Unclaim()
-    {
-        _isClaimed = false;
-    }
-
+    
     public void PutToPool()
     {
         Unclaim();
@@ -34,4 +30,7 @@ public class Resource : MonoBehaviour
         _spawner = spawner;
         Unclaim();
     }
+
+    private void Unclaim() =>
+    _isClaimed = false;
 }

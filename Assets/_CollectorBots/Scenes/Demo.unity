@@ -972,7 +972,7 @@ MonoBehaviour:
   _timeBeetweenScanning: 3
   _scanAnimation: {fileID: 1673098694}
   isGizmosVisible: 0
-  _transporentGizmos: 0
+  _transporentGizmos: 0.241
   _gizmosColor: {r: 1, g: 0.938577, b: 0.14509803, a: 0}
 --- !u!114 &484484897
 MonoBehaviour:
@@ -1094,37 +1094,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484484890}
   m_CullTransparentMesh: 1
---- !u!1 &488068021
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 488068022}
-  m_Layer: 0
-  m_Name: Bootstrap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &488068022
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488068021}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &500405732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1503,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000008302803, y: 0.9535462, z: -0.30124673, w: 0.000002623042}
-  m_LocalPosition: {x: -0.3800947, y: 10.226776, z: 14.994216}
+  m_LocalPosition: {x: 0, y: 10, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1725,9 +1694,8 @@ GameObject:
   - component: {fileID: 1047622461}
   - component: {fileID: 1047622460}
   - component: {fileID: 1047622459}
-  - component: {fileID: 1047622464}
   m_Layer: 0
-  m_Name: Bot (2)
+  m_Name: Bot_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1759,9 +1727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c00b9d1802d31479b04b4e8dbe2c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _miningDistance: 2
-  _dropDistance: 2
 --- !u!114 &1047622461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1808,28 +1773,6 @@ Transform:
   - {fileID: 873554938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1047622464
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047622458}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1082109882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,9 +2758,8 @@ GameObject:
   - component: {fileID: 1655748606}
   - component: {fileID: 1655748607}
   - component: {fileID: 1655748608}
-  - component: {fileID: 1655748609}
   m_Layer: 0
-  m_Name: Bot
+  m_Name: Bot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2881,9 +2823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c00b9d1802d31479b04b4e8dbe2c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _miningDistance: 2
-  _dropDistance: 2
 --- !u!114 &1655748608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2898,28 +2837,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resource: {fileID: 0}
   _conteiner: {fileID: 1468528639}
---- !u!95 &1655748609
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655748603}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1673098692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3506,9 +3423,8 @@ GameObject:
   - component: {fileID: 2086426437}
   - component: {fileID: 2086426439}
   - component: {fileID: 2086426438}
-  - component: {fileID: 2086426442}
   m_Layer: 0
-  m_Name: Bot (1)
+  m_Name: Bot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3554,9 +3470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c00b9d1802d31479b04b4e8dbe2c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _miningDistance: 2
-  _dropDistance: 2
 --- !u!114 &2086426440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,28 +3502,6 @@ Transform:
   - {fileID: 2144207592}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2086426442
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086426436}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2097102929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4057,7 +3948,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 484484894}
-  - {fileID: 488068022}
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1753942885}

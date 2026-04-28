@@ -25,12 +25,10 @@ public abstract class StateMachine : MonoBehaviour, IStateMachine
         }
         else
         {
-            Debug.LogError($"State {type.Name} not found!");
+            Debug.LogError($"Состояние {type.Name} не найдено!");
         }
     }
 
-    protected void AddState<T>(IState state) where T : IState
-    {
-        _states.Add(typeof(T), state);
-    }
+    protected void AddState<T>(IState state) where T : IState =>    
+        _states.Add(typeof(T), state);    
 }

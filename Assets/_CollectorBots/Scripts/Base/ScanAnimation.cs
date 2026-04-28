@@ -31,18 +31,12 @@ public class ScanAnimation : MonoBehaviour
         renderer.material.DOFade(_tranporancy, _duration).SetDelay(_delayTime).SetEase(_ease).SetLoops(_repeatCount);
     }
 
-    private void DoScale()
-    {
+    private void DoScale() =>    
         transform.DOScale(_scaleVector, _duration).SetDelay(_delayTime).SetEase(_ease).SetLoops(_repeatCount);
-    }
 
-    private void ResetScale()
-    {
+    private void ResetScale() =>    
         transform.localScale = Vector3.one * _scaleMultiplier;
-    }
-
-    private void ResetColor(MeshRenderer renderer)
-    {
+    
+    private void ResetColor(MeshRenderer renderer) =>    
         renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, _defaultTranporancy);
-    }
 }

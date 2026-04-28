@@ -19,15 +19,8 @@ public class Base : MonoBehaviour
 
     private void Awake()
     {
-        if (_resurceScanner == null)
-        {
-            _resurceScanner = GetComponent<ResourceScanner>();
-        }
-
-        if (_counter == null)
-        {
-            _counter = GetComponent<ResourceCounter>();
-        }
+        _resurceScanner ??= GetComponent<ResourceScanner>();
+        _counter ??= GetComponent<ResourceCounter>();
     }
 
     private void Start()
@@ -75,7 +68,7 @@ public class Base : MonoBehaviour
 
     private IEnumerator Working()
     {
-        while (enabled) 
+        while (enabled)
         {
             yield return _wait;
             DoWork();
