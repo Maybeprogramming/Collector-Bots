@@ -1,20 +1,24 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using CollectorBots.Sheduler;
 
 public class Base : MonoBehaviour
 {
     [SerializeField] private ResourceCounter _counter;
     [SerializeField] private Transform _target;
-    [SerializeField] private Bot _bot;
-    [SerializeField] private ResurceScanner _resurceScanner;
+    [SerializeField] private List<Bot> _bots;
+    [SerializeField] private ResourceScanner _resurceScanner;
     [SerializeField] private float _delayTime;
 
     private Coroutine _working;
     private WaitForSeconds _wait;
+    private TaskSheduler _taskSheduler;
 
     private void Start()
     {
         _wait = new WaitForSeconds(_delayTime);
+        _taskSheduler = new TaskSheduler(_bots ?? new List<Bot>());
         _working = StartCoroutine(Working());
     }
 
@@ -28,10 +32,14 @@ public class Base : MonoBehaviour
 
     private void DoWork()
     {
-        if (_resurceScanner.TryGetResource(out Resource resource) && _bot.IsBusy == false)
+        while (_resurceScanner.TryGetResource(out Resource resource))
         {
-            _bot.SetResourceToMine(resource);
+            _taskSheduler.AddTask(new Task(resource, transform.position));
         }
+
+        int assignedTasksCount = _taskSheduler.AssignTasks();
+
+        if (_taskSheduler.PendingTasksCount > 0 && assignedTasksCount == 0)
         {
             Debug.Log("Нет свободных рабочих");
         }

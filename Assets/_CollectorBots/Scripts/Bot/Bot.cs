@@ -1,12 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Mover), 
+                  typeof(BotStateMachine),
+                  typeof(Inventory))]
+
 public class Bot: MonoBehaviour, IBot
 {
     [SerializeField] private Base _base;
-    [SerializeField] private Mover _mover;
     [SerializeField] private Resource _currentResource;
-    [SerializeField] private Inventory _resourceConteiner;
-    [SerializeField] private BotStateMachine _stateMachine;
+
+    private Mover _mover;
+    private Inventory _resourceConteiner;
+    private BotStateMachine _stateMachine;
 
     public Resource CurrentResource => _currentResource;
 
@@ -16,16 +21,18 @@ public class Bot: MonoBehaviour, IBot
 
     private void Start()
     {
+        _mover = GetComponent<Mover>();
+        _resourceConteiner = GetComponent<Inventory>();
+        _stateMachine = GetComponent<BotStateMachine>();
         _stateMachine.Init(this, _mover, _resourceConteiner);
     }
 
     public void GiveResource(Resource resource)
     {
         _base.TakeResource(resource);
-        _currentResource = null; // Выявление ошибки в пуле
+        _currentResource = null;
     }
 
-    //Плохо! Переделать
     public void SetResourceToMine(Resource resource)
     {
         _currentResource = resource;

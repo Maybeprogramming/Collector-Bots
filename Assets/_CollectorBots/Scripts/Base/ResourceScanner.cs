@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ResurceScanner : MonoBehaviour
+public class ResourceScanner : MonoBehaviour
 {
     [SerializeField] private Transform _centerLocation;
     [SerializeField] private float _radius;
@@ -20,8 +20,10 @@ public class ResurceScanner : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (isGizmosVisible)
+        {
             Gizmos.color = new Color(_gizmosColor.r, _gizmosColor.g, _gizmosColor.b, _transporentGizmos);
-        Gizmos.DrawSphere(_centerLocation.position, _radius);
+            Gizmos.DrawSphere(_centerLocation.position, _radius);
+        }
     }
 
     private void Start()
@@ -41,8 +43,12 @@ public class ResurceScanner : MonoBehaviour
 
             foreach (var collider in colliders)
             {
-                if (_resources.Contains(collider.GetComponent<Resource>()) == false)
-                    _resources.Add(collider.GetComponent<Resource>());
+                Resource resource = collider.GetComponent<Resource>();
+
+                if (resource != null && _resources.Contains(resource) == false)
+                {
+                    _resources.Add(resource);
+                }
             }
         }
     }
