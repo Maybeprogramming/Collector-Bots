@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using CollectorBots.Sheduler;
 
+[RequireComponent(typeof(ResourceScanner))]
 public class Base : MonoBehaviour
 {
     [SerializeField] private ResourceCounter _counter;
@@ -15,6 +16,19 @@ public class Base : MonoBehaviour
     private Coroutine _working;
     private WaitForSeconds _wait;
     private TaskSheduler _taskSheduler;
+
+    private void Awake()
+    {
+        if (_resurceScanner == null)
+        {
+            _resurceScanner = GetComponent<ResourceScanner>();
+        }
+
+        if (_counter == null)
+        {
+            _counter = GetComponent<ResourceCounter>();
+        }
+    }
 
     private void Start()
     {

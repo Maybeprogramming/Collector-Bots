@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class BotStateMachine : StateMachine
 {
     [SerializeField] private Animator _animator;
@@ -14,6 +15,14 @@ public class BotStateMachine : StateMachine
 
     public IMover GetBotMover() =>
         _mover;
+
+    private void Awake()
+    {
+        if (_animator == null)
+        {
+            _animator = GetComponent<Animator>();
+        }
+    }
 
     private void Start()
     {
