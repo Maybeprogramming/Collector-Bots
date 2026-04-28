@@ -23,6 +23,11 @@ namespace CollectorBots.Sheduler
                 return;
             }
 
+            if (task.Resource.IsClaimed)
+            {
+                return;
+            }
+
             if (_tasks.Any(existingTask => existingTask.Resource == task.Resource))
             {
                 return;
@@ -49,6 +54,11 @@ namespace CollectorBots.Sheduler
                 if (task == null)
                 {
                     break;
+                }
+
+                if (task.Resource.TryClaim() == false)
+                {
+                    continue;
                 }
 
                 bot.SetResourceToMine(task.Resource);
@@ -78,7 +88,11 @@ namespace CollectorBots.Sheduler
 
         private void RemoveInvalidTasks()
         {
-            _tasks.RemoveAll(task => task == null || task.Resource == null || task.Resource.gameObject.activeInHierarchy == false);
+            _tasks.RemoveAll(task =>
+                task == null ||
+                task.Resource == null ||
+                task.Resource.IsClaimed ||
+                task.Resource.gameObject.activeInHierarchy == false);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using CollectorBots.Sheduler;
 
@@ -32,9 +33,22 @@ public class Base : MonoBehaviour
 
     private void DoWork()
     {
+        List<Resource> foundResources = null;
+
         while (_resurceScanner.TryGetResource(out Resource resource))
         {
-            _taskSheduler.AddTask(new Task(resource, transform.position));
+            foundResources ??= new List<Resource>();
+            foundResources.Add(resource);
+        }
+
+        if (foundResources != null)
+        {
+            Vector3 basePosition = transform.position;
+
+            foreach (Resource resource in foundResources.OrderBy(r => Vector3.Distance(basePosition, r.transform.position)))
+            {
+                _taskSheduler.AddTask(new Task(resource, basePosition));
+            }
         }
 
         int assignedTasksCount = _taskSheduler.AssignTasks();

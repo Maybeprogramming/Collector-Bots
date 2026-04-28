@@ -45,7 +45,7 @@ public class ResourceScanner : MonoBehaviour
             {
                 Resource resource = collider.GetComponent<Resource>();
 
-                if (resource != null && _resources.Contains(resource) == false)
+                if (resource != null && resource.IsClaimed == false && _resources.Contains(resource) == false)
                 {
                     _resources.Add(resource);
                 }
@@ -55,17 +55,21 @@ public class ResourceScanner : MonoBehaviour
 
     public bool TryGetResource(out Resource resource)
     {
-        if (_resources.Count != 0)
+        while (_resources.Count != 0)
         {
             resource = _resources.First();
             _resources.Remove(resource);
+
+            if (resource == null || resource.IsClaimed)
+            {
+                continue;
+            }
+
             return true;
         }
-        else
-        {
-            resource = null;
-            return false;
-        }    
+
+        resource = null;
+        return false;
     }
 
     private IEnumerator Scanning()
