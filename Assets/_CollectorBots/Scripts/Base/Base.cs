@@ -52,7 +52,7 @@ public class Base : MonoBehaviour
         {
             Vector3 basePosition = transform.position;
 
-            foreach (Resource resource in foundResources.OrderBy(r => Vector3.Distance(basePosition, r.transform.position)))
+            foreach (Resource resource in foundResources.OrderBy(r => Vector3.SqrMagnitude(basePosition - r.transform.position)))
             {
                 _taskSheduler.AddTask(new Task(resource, basePosition));
             }
