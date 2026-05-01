@@ -7,7 +7,10 @@ public abstract class StateMachine : MonoBehaviour, IStateMachine
     private IState _currentState;
     private Dictionary<Type, IState> _states = new Dictionary<Type, IState>();
 
-    protected virtual void Update() =>
+    public void Update() =>
+        UpdateState();
+
+    protected virtual void UpdateState() =>
         _currentState?.Update();
 
     public IState GetCurrentState => _currentState;

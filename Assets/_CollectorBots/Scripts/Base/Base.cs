@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using CollectorBots.Sheduler;
+using System;
 
 [RequireComponent(typeof(ResourceScanner))]
 public class Base : MonoBehaviour
@@ -16,6 +17,8 @@ public class Base : MonoBehaviour
     private Coroutine _working;
     private WaitForSeconds _wait;
     private TaskSheduler _taskSheduler;
+
+    public event Action ResourceAdded;
 
     private void Awake()
     {
@@ -32,10 +35,11 @@ public class Base : MonoBehaviour
 
     public void TakeResource(Resource resource)
     {
-        _counter.Add();
+        ResourceAdded?.Invoke();
+
         resource.PutToPool();
 
-        Debug.Log($"База приняла ресурс {resource.name}");
+        //Debug.Log($"База приняла ресурс {resource.name}");
     }
 
     private void DoWork()

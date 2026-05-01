@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ResourceScanner : MonoBehaviour
 {
-    [SerializeField] private Transform _centerLocation;
+    [SerializeField] private Transform _scannerPoint;
     [SerializeField] private float _radius;
     [SerializeField] private List<Resource> _resources;
     [SerializeField] private LayerMask _layerMask;
@@ -22,7 +22,7 @@ public class ResourceScanner : MonoBehaviour
         if (isGizmosVisible)
         {
             Gizmos.color = new Color(_gizmosColor.r, _gizmosColor.g, _gizmosColor.b, _transporentGizmos);
-            Gizmos.DrawSphere(_centerLocation.position, _radius);
+            Gizmos.DrawSphere(_scannerPoint.position, _radius);
         }
     }
 
@@ -35,7 +35,7 @@ public class ResourceScanner : MonoBehaviour
     {
         Debug.Log("Сканиерование");
 
-        var colliders = Physics.OverlapSphere(_centerLocation.position, _radius, _layerMask);
+        var colliders = Physics.OverlapSphere(_scannerPoint.position, _radius, _layerMask);
 
         if (colliders.Length != 0)
         {
@@ -43,9 +43,7 @@ public class ResourceScanner : MonoBehaviour
 
             foreach (var collider in colliders)
             {
-                Resource resource = collider.GetComponent<Resource>();
-
-                if (resource != null && resource.IsClaimed == false && _resources.Contains(resource) == false)
+                if (collider.TryGetComponent(out Resource resource) && resource.IsClaimed == false && _resources.Contains(resource) == false)
                 {
                     _resources.Add(resource);
                 }

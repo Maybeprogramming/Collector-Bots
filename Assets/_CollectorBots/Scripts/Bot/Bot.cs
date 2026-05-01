@@ -17,7 +17,7 @@ public class Bot: MonoBehaviour, IBot
 
     public Vector3 CurrentBasePosition => _base.gameObject.transform.position;
 
-    public bool IsBusy => _stateMachine.GetCurrentState is Idle == false;
+    public bool IsBusy => _stateMachine.GetCurrentState is IdleState == false;
 
     private void Start()
     {

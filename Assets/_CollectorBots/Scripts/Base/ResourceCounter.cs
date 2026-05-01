@@ -6,7 +6,6 @@ public class ResourceCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _label;
     [SerializeField] private int _count;
-    [SerializeField] private string _text;
 
     private void Awake() =>
         _label ??= GetComponent<TextMeshProUGUI>();
