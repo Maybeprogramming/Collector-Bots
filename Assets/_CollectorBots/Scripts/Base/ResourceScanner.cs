@@ -17,6 +17,8 @@ public class ResourceScanner : MonoBehaviour
     [SerializeField, Range(0, 1)] private float _transporentGizmos;
     [SerializeField] private Color _gizmosColor;
 
+    private WaitForSeconds _waitTimer;
+
     private void OnDrawGizmos()
     {
         if (isGizmosVisible)
@@ -28,6 +30,8 @@ public class ResourceScanner : MonoBehaviour
 
     private void Start()
     {
+        _waitTimer = new WaitForSeconds(_timeBeetweenScanning);
+
         StartCoroutine(Scanning());
     }
 
@@ -43,7 +47,7 @@ public class ResourceScanner : MonoBehaviour
 
             foreach (var collider in colliders)
             {
-                if (collider.TryGetComponent(out Resource resource) && resource.IsClaimed == false && _resources.Contains(resource) == false)
+                if (collider.TryGetComponent(out Resource resource) && resource.IsReserved == false && _resources.Contains(resource) == false)
                 {
                     _resources.Add(resource);
                 }
@@ -58,7 +62,7 @@ public class ResourceScanner : MonoBehaviour
             resource = _resources.First();
             _resources.Remove(resource);
 
-            if (resource == null || resource.IsClaimed)
+            if (resource == null || resource.IsReserved)
             {
                 continue;
             }
@@ -76,7 +80,9 @@ public class ResourceScanner : MonoBehaviour
         {
             _scanAnimation.gameObject.SetActive(true);
             _scanAnimation.RunScaning();
-            yield return new WaitForSeconds(_timeBeetweenScanning);
+
+            yield return _waitTimer;
+
             _scanAnimation.gameObject.SetActive(false);
             LocationScaning();
         }

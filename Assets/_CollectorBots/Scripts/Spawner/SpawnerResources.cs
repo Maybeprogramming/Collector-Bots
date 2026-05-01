@@ -16,6 +16,11 @@ public class SpawnerResources : BaseResourcePool<Resource>
 
     public event Action Spawned;
 
+    public void Release(Resource resource)
+    {
+        Pool.Release(resource);
+    }
+
     private void Start()
     {
         PoolInit();
@@ -31,7 +36,7 @@ public class SpawnerResources : BaseResourcePool<Resource>
         resource.transform.rotation = Quaternion.identity;
         resource.transform.localScale = Vector3.one;
         resource.transform.parent = _conteiner.transform;
-        resource.Init(this);
+        resource.RemoveReserve();
 
         Spawned?.Invoke();
     }

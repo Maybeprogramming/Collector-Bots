@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 89278472}
   - component: {fileID: 89278473}
   m_Layer: 0
-  m_Name: ResourceSpawner
+  m_Name: SpawnerResources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3438,6 +3438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 484484897}
   _counter: {fileID: 484484895}
+  _spawner: {fileID: 89278473}
 --- !u!4 &2049427608
 Transform:
   m_ObjectHideFlags: 0

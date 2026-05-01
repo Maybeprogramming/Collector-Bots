@@ -23,7 +23,7 @@ namespace CollectorBots.Sheduler
                 return;
             }
 
-            if (task.Resource.IsClaimed)
+            if (task.Resource.IsReserved)
             {
                 return;
             }
@@ -56,7 +56,7 @@ namespace CollectorBots.Sheduler
                     break;
                 }
 
-                if (task.Resource.TryClaim() == false)
+                if (task.Resource.TryReserved() == false)
                 {
                     continue;
                 }
@@ -91,7 +91,7 @@ namespace CollectorBots.Sheduler
             _tasks.RemoveAll(task =>
                 task == null ||
                 task.Resource == null ||
-                task.Resource.IsClaimed ||
+                task.Resource.IsReserved ||
                 task.Resource.gameObject.activeInHierarchy == false);
         }
     }

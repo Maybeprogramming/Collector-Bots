@@ -16,7 +16,7 @@ public class ResourceCounter : MonoBehaviour
         _label.text = $"- {_count} -";
     }
 
-    public void Add()
+    public void Add(Resource _)
     {
         _count++;
         _label.text = $"- {_count} -";

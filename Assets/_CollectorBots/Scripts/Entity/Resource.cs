@@ -2,35 +2,19 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    [SerializeField] private SpawnerResources _spawner;
+    public bool IsReserved { get; private set; }
 
-    private bool _isClaimed;
-
-    public bool IsClaimed => _isClaimed;
-
-    public bool TryClaim()
+    public bool TryReserved()
     {
-        if (_isClaimed)
+        if (IsReserved)
         {
             return false;
         }
 
-        _isClaimed = true;
+        IsReserved = true;
         return true;
     }
-    
-    public void PutToPool()
-    {
-        Unclaim();
-        _spawner.Pool.Release(this);
-    }
 
-    public void Init(SpawnerResources spawner)
-    {
-        _spawner = spawner;
-        Unclaim();
-    }
-
-    private void Unclaim() =>
-    _isClaimed = false;
+    public void RemoveReserve() =>
+        IsReserved = false;
 }
