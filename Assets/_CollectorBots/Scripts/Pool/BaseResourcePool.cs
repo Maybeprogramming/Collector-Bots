@@ -3,7 +3,7 @@ using UnityEngine.Pool;
 
 public class BaseResourcePool<T> : MonoBehaviour where T : Resource
 {
-    private static int s_ID = 0;
+    private int _id;
 
     [SerializeField] private T _prefab;
     [SerializeField] private bool _collectionCheck;
@@ -15,6 +15,8 @@ public class BaseResourcePool<T> : MonoBehaviour where T : Resource
 
     protected void PoolInit()
     {
+        _id = 0;
+
         Pool = new ObjectPool<T>
             (
                 () => Create(),
@@ -39,7 +41,7 @@ public class BaseResourcePool<T> : MonoBehaviour where T : Resource
     public T Create()
     {
         T var = Instantiate(_prefab, Vector3.zero, Quaternion.identity);
-        var.gameObject.name = $"{_entityName}_{++s_ID}";
+        var.gameObject.name = $"{_entityName}_{++_id}";
 
         return var;
     }
