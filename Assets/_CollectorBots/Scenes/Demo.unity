@@ -790,7 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -970,9 +970,9 @@ MonoBehaviour:
     m_Bits: 64
   _timeBeetweenScanning: 3
   _scanAnimation: {fileID: 1673098694}
-  isGizmosVisible: 0
-  _transporentGizmos: 0.241
-  _gizmosColor: {r: 1, g: 0.938577, b: 0.14509803, a: 0}
+  isGizmosVisible: 1
+  _transporentGizmos: 0.152
+  _gizmosColor: {r: 0, g: 1, b: 0.76712465, a: 0}
 --- !u!114 &484484897
 MonoBehaviour:
   m_ObjectHideFlags: 0
