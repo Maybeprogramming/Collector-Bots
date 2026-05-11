@@ -19,7 +19,7 @@ public class ResourcesData : MonoBehaviour
         {
             resource = _resourcesAvaible.First();
 
-            DoReserved(resource);
+            Lock(resource);
 
             return true;
         }
@@ -30,13 +30,13 @@ public class ResourcesData : MonoBehaviour
 
     public void AddResourceToData(Resource resource)
     {
-        if (_resourcesAvaible.Contains(resource) == false)
+        if (_resourcesAvaible.Contains(resource))
         {
-            _resourcesAvaible.Add(resource);
+            Debug.LogError($"{resource} - уже в списке {nameof(_resourcesAvaible)}");           
         }
         else
         {
-            Debug.LogError($"{resource} - уже в списке {nameof(_resourcesAvaible)}");
+            _resourcesAvaible.Add(resource);
         }
     }
 
@@ -44,7 +44,7 @@ public class ResourcesData : MonoBehaviour
     {
         if (_resourcesReserved.Contains(resource))
         {
-            DoUnreserved(resource);
+            Unlock(resource);
         }
         else
         {
@@ -52,13 +52,13 @@ public class ResourcesData : MonoBehaviour
         }
     }
 
-    private void DoReserved(Resource resource)
+    private void Lock(Resource resource)
     {
         _resourcesReserved.Add(resource);
         _resourcesAvaible.Remove(resource);
     }
 
-    private void DoUnreserved(Resource resource)
+    private void Unlock(Resource resource)
     {
         _resourcesReserved.Remove(resource);
         _resourcesAvaible.Add(resource);
